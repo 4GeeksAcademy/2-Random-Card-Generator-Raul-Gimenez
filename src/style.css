@@ -1,1 +1,95 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
+body {
+  margin: 0;
+  background-color: darkslategrey;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 320px;
+  height: 460px;
+  border-radius: 30px;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404);
+  border-radius: 30px;
+  transition: all 500ms /*$c-becier*/;
+  transform-style: preserve-3d;
+}
+
+.cardBack,
+.cardFront {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  backface-visibility: hidden;
+}
+
+.cardBack {
+  background-image: url(https://deception52.com/wp-content/uploads/2018/08/playing-cards-aviator-2_1024x1024-729x1024.png);
+  background-position: center;
+  background-size: cover;
+  transform: rotateY(180deg);
+}
+
+.cardFront {
+  background-color: white;
+  display: flex;
+}
+
+.numberContainer {
+  width: 260px;
+  height: 400px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#frontNumber {
+  font-size: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#upCardColor,
+#bottomCardColor {
+  font-size: 70px;
+  padding: 15px;
+}
+
+#upCardColor {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+
+#bottomCardColor {
+  margin-top: auto;
+  margin-bottom: 0;
+  transform: rotate(180deg);
+}
+
+.♥,
+.♦ {
+  color: red;
+}
+
+.cardInner:hover {
+  transform: rotateY(-180deg);
+}
