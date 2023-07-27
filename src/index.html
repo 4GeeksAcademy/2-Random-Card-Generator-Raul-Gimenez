@@ -7,9 +7,12 @@
     <title>Card Generator</title>
   </head>
   <body>
+    <h1 id="resetButton">
+      There are <i>52</i> cards left!
+    </h1>
     <main class="mainCard">
-      <div class="card">
-        <div class="cardInner" onclick="location.reload()">
+      <div id="card" class="card">
+        <div class="cardInner">
           <div class="cardBack"></div>
           <div class="cardFront">
             <div id="upCardColor"></div>
@@ -20,6 +23,7 @@
           </div>
         </div>
       </div>
+      <div></div>
     </main>
     <script src="app.js"></script>
   </body>

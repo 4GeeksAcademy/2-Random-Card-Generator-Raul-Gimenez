@@ -3,9 +3,23 @@ body {
   background-color: darkslategrey;
   width: 100%;
   height: 100vh;
-  display: flex;
+  display: flexbox;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-weight: bolder;
+  font-size: 40px;
+  margin: 25px;
+  padding: 75px;
+  & i {
+    color: gold;
+    text-emphasis: none;
+    font-style: normal;
+  }
 }
 
 .mainCard {
@@ -26,7 +40,7 @@ body {
   height: 100%;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.404);
   border-radius: 30px;
-  transition: all 500ms /*$c-becier*/;
+  transition: 500ms /*$c-becier*/;
   transform-style: preserve-3d;
 }
 
@@ -68,20 +82,27 @@ body {
   justify-content: center;
 }
 
+#frontNumber p {
+  text-align: center;
+  font-size: 50px;
+}
+
 #upCardColor,
 #bottomCardColor {
-  font-size: 70px;
+  font-size: 80px;
   padding: 15px;
 }
 
 #upCardColor {
   margin-top: 0;
   margin-bottom: auto;
+  margin-left: 15px;
 }
 
 #bottomCardColor {
   margin-top: auto;
   margin-bottom: 0;
+  margin-right: 15px;
   transform: rotate(180deg);
 }
 
@@ -90,6 +111,6 @@ body {
   color: red;
 }
 
-.cardInner:hover {
+.cardInner:active {
   transform: rotateY(-180deg);
 }
