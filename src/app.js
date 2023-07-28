@@ -1,3 +1,5 @@
+//ejecutar con $ npx serve ./src
+
 let cardDeck = {
   "♥": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"],
   "♦": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"],
@@ -5,7 +7,7 @@ let cardDeck = {
   "♠": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"],
 };
 
-const resetButton = document.querySelector("#resetButton");
+const countdown = document.querySelector("#countdown");
 const frontNumber = document.querySelector("#frontNumber");
 const upAndBottomCardColor = document.querySelectorAll(
   "#upCardColor, #bottomCardColor"
@@ -62,7 +64,7 @@ function mainFunction() {
     cardDeck
   )}</i> cards left`;
 
-  resetButton.innerHTML = restOfCards;
+  countdown.innerHTML = restOfCards;
   frontNumber.append(cardCatch(color));
   upAndBottomCardColor.forEach((element) => {
     element.className = color;
@@ -70,20 +72,20 @@ function mainFunction() {
   upAndBottomCardColor.forEach((element) => {
     return element.append(color);
   });
+
+  if (countdown.textContent == "There are 0 cards left") {
+    countdown.innerHTML = " ";
+    frontNumber.innerHTML = `<p>Thats all!!
+    Click to generate another deck!</p>`;
+    upAndBottomCardColor.forEach((element) => {
+      element.innerHTML = "";
+    });
+    card.removeEventListener("click", handleChangeCard);
+    card.addEventListener("click", (_) => location.reload());
+  }
 }
 
 const card = document.getElementById("card");
-
-const handleLastCard = (e) => {
-  frontNumber.innerHTML = `Thats all!!
-    Click to generate another deck!`;
-  upAndBottomCardColor.forEach((element) => {
-    element.className = "";
-  });
-  upAndBottomCardColor.forEach((element) => {
-    return (element.innerHTML = "");
-  });
-};
 
 const handleChangeCard = (e) => {
   frontNumber.innerHTML = "";
@@ -96,13 +98,4 @@ const handleChangeCard = (e) => {
   mainFunction();
 };
 
-if (resetButton.textContent == " ") {
-  card.removeEventListener("click", handleLastCard);
-  card.addEventListener("click", (_) => location.reload());
-} else if (resetButton.textContent == "There are 0 cards left") {
-  card.removeEventListener("click", handleChangeCard);
-  card.addEventListener("click", handleLastCard);
-  resetButton.innerHTML = " ";
-} else {
-  card.addEventListener("click", handleChangeCard);
-}
+card.addEventListener("click", handleChangeCard);
